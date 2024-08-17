@@ -17,7 +17,7 @@ Consider a scenario modeling the behavior of an agent, such as an animal, using 
   - The agent receives a continuous reward for staying alive. This could be a small positive reward at each time step that increases with the amount of time the agent survives.
   - R<sub><i>survival</i></sub> = 1 per time step alive.
   - The agent is penalized heavily for dying (e.g., being caught by a predator or starving).
-  - R<sub><i>death</i></sub> = -100` when the agent dies.
+  - R<sub><i>death</i></sub> = -100 when the agent dies.
 
 - **Reproduction Reward:**
   - The agent receives a significant reward for successfully reproducing.
