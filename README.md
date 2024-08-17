@@ -15,15 +15,14 @@ Consider a scenario modeling the behavior of an agent, such as an animal, using 
 
 - **Survival Reward:**
   - The agent receives a continuous reward for staying alive. This could be a small positive reward at each time step that increases with the amount of time the agent survives.
-  - \( R_{\text{survival}} = 1 \) per time step alive.
+  - R<sub><i>survival</i></sub> = 1 per time step alive.
   - The agent is penalized heavily for dying (e.g., being caught by a predator or starving).
-  - \( R_{\text{death}} = -100 \) when the agent dies.
+  - R<sub><i>death</i></sub> = -100` when the agent dies.
 
 - **Reproduction Reward:**
   - The agent receives a significant reward for successfully reproducing.
-  - \( R_{\text{reproduction}} = 50 \) for each successful reproduction.
+  - R<sub><i>reproduction</i></sub> = 50 for each successful reproduction.
   - The agent might also receive rewards for behaviors that increase the likelihood of finding a mate, such as moving towards a mating ground or performing a courtship display.
-
 ### 3. **Possible Training of the Agent:**
 
 - **Environment Simulation:**
