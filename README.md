@@ -42,7 +42,7 @@ Part of the project is resource gathering. Initially, this is a modification of 
 
 </br>
 <p align="center">
-    <img src="https://github.com/doesburg11/PredPreyGrass/blob/main/assets/gif/predpreygrass.gif" width="1000" height="200"/>
+    <img src="https://github.com/doesburg11/SurvivalReproduction/blob/main/assets/myagent1.gif" width="1000" height="200"/>
 </p>
 
 
