@@ -1,0 +1,80 @@
+diff --git a/MO_Gymnasium/resource_gathering_v0/dqn_policy.py b/MO_Gymnasium/resource_gathering_v0/dqn_policy.py
+index 93fee5d..2ab526f 100644
+--- a/MO_Gymnasium/resource_gathering_v0/dqn_policy.py
++++ b/MO_Gymnasium/resource_gathering_v0/dqn_policy.py
+@@ -1,36 +1,19 @@
++import gymnasium as gym
+ import mo_gymnasium as mo_gym
+-import stable_baselines3 as sb3
+-import numpy as np
+ from mo_gymnasium.utils import MORecordEpisodeStatistics
+ import numpy as np
+-from morl_baselines.multi_policy.multi_policy_moqlearning.mp_mo_q_learning import (
+-    MPMOQLearning,
+-)
+-from morl_baselines.common.utils import make_gif
+-
+-
+-# Create your environment
+-#env = mo_gym.make("resource-gathering-v0", render_mode="human")
+-
+-
+-# Linear scalarizes the environment
+-env = mo_gym.LinearReward(
+-    mo_gym.make("resource-gathering-v0"), weight=np.array([0.9, 0.1, 0.0])
+-)
+-
+-# Run DQN agent!
+-agent = sb3.DQN("MlpPolicy", env)
+-agent.learn(100000)
+ 
+ GAMMA = 0.9
+-ref_point = np.array([-1.0, -1.0, -2.0])
++ref_point = np.array([-1., -1., -2.])
+ 
+ env = mo_gym.make("resource-gathering-v0")
+ env = MORecordEpisodeStatistics(env, gamma=GAMMA)  # wrapper for recording statistics
+ 
+-eval_env = mo_gym.make("resource-gathering-v0")  # environment used for evaluation
++eval_env = mo_gym.make("resource-gathering-v0") # environment used for evaluation
++
++env.pareto_front(GAMMA) # known Pareto front
+ 
+-env.pareto_front(GAMMA)  # known Pareto front
++from morl_baselines.multi_policy.multi_policy_moqlearning.mp_mo_q_learning import MPMOQLearning
+ 
+ # Your code here:
+ agent = MPMOQLearning(
+@@ -41,24 +24,20 @@ agent = MPMOQLearning(
+     gamma=GAMMA,
+     dyna=True,
+     gpi_pd=True,
+-    weight_selection_algo="gpi-ls",
+-    use_gpi_policy=True,
++    weight_selection_algo='gpi-ls',
++    use_gpi_policy=True
+ )
+ 
+-agent.train(
+-    total_timesteps=100000,
+-    timesteps_per_iteration=10000,
+-    eval_env=eval_env,
+-    num_eval_episodes_for_front=50,
+-    ref_point=ref_point,
+-)
++agent.train(total_timesteps=100000, timesteps_per_iteration=10000, eval_env=eval_env, num_eval_episodes_for_front=50, ref_point=ref_point)
++
+ 
+ env.pareto_front(0.9)
++
+ agent.linear_support.ccs
+ 
+-env2 = mo_gym.make(
+-    "resource-gathering-v0", render_mode="rgb_array"
+-)  # you need to set the render_mode to render the gifs
++from morl_baselines.common.utils import make_gif
++
++env2 = mo_gym.make("resource-gathering-v0", render_mode='rgb_array')  # you need to set the render_mode to render the gifs
+ 
+ # Your code here:
+ make_gif(env2, agent, weight=np.array([0.9, 0.1, 0.0]), fps=10, fullpath="./myagent1")
