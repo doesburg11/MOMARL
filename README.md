@@ -38,7 +38,7 @@ Consider a scenario modeling the behavior of an agent, such as an animal, using 
 - **Balanced Behavior:** Ideally, the agent finds a balance where it survives long enough to reproduce multiple times, ensuring both its survival and the continuation of its species.
 
 # The Implementation of the Project
-Part of the project is resource gathering. Initially, this is a modification of a [morl-baselines](https://github.com/LucasAlegre/morl-baselines) example.
+Part of the project is resource gathering, as this is a crucial part of the **survival** objective. Initially, this is a modification of a [morl-baselines](https://github.com/LucasAlegre/morl-baselines) example.
 
 </br>
 <p align="center">
