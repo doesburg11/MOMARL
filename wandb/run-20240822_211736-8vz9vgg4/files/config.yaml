@@ -1,0 +1,774 @@
+wandb_version: 1
+
+env_id:
+  desc: null
+  value: resource-gathering-v0
+learning_rate:
+  desc: null
+  value: 0.1
+gamma:
+  desc: null
+  value: 0.9
+initial_epsilon:
+  desc: null
+  value: 1.0
+final_epsilon:
+  desc: null
+  value: 0.05
+epsilon_decay_steps:
+  desc: null
+  value: 100000
+scalarization:
+  desc: null
+  value: weighted_sum
+use_gpi_policy:
+  desc: null
+  value: true
+weight_selection_algo:
+  desc: null
+  value: gpi-ls
+epsilon_ols:
+  desc: null
+  value: null
+transfer_q_table:
+  desc: null
+  value: true
+dyna:
+  desc: null
+  value: true
+dyna_updates:
+  desc: null
+  value: 5
+gpi_pd:
+  desc: null
+  value: true
+seed:
+  desc: null
+  value: null
+algo:
+  desc: null
+  value: MultiPolicy MO Q-Learning
+_wandb:
+  desc: null
+  value:
+    code_path: code/MO_Gymnasium/resource_gathering_v0/mpmoq_policy.py
+    python_version: 3.11.7
+    cli_version: 0.17.7
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1724354256
+    t:
+      1:
+      - 1
+      - 55
+      - 105
+      2:
+      - 1
+      - 55
+      - 105
+      3:
+      - 2
+      - 7
+      - 13
+      - 16
+      - 19
+      - 23
+      4: 3.11.7
+      5: 0.17.7
+      8:
+      - 5
+      13: linux-x86_64
+    m:
+    - 1: global_step
+    - 1: charts_0/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_0/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_0/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_0/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval/hypervolume
+      5: 1
+      6:
+      - 1
+    - 1: eval/sparsity
+      5: 1
+      6:
+      - 1
+    - 1: eval/eum
+      5: 1
+      6:
+      - 1
+    - 1: eval/cardinality
+      5: 1
+      6:
+      - 1
+    - 1: eval/front._type
+      5: 1
+      6:
+      - 1
+    - 1: eval/front.sha256
+      5: 1
+      6:
+      - 1
+    - 1: eval/front.size
+      5: 1
+      6:
+      - 1
+    - 1: eval/front.artifact_path
+      5: 1
+      6:
+      - 1
+    - 1: eval/front._latest_artifact_path
+      5: 1
+      6:
+      - 1
+    - 1: eval/front.path
+      5: 1
+      6:
+      - 1
+    - 1: eval/front.ncols
+      5: 1
+      6:
+      - 1
+    - 1: eval/front.nrows
+      5: 1
+      6:
+      - 1
+    - 1: charts_1/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_1/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_1/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_1/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_2/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_2/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_2/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_2/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_3/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_3/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_3/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_3/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_4/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_4/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_4/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_4/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_4/SPS
+      5: 1
+      6:
+      - 1
+    - 1: charts_4/timesteps_per_episode
+      5: 1
+      6:
+      - 1
+    - 1: charts_4/episode_time
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/discounted_scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/disc_episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/disc_episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: metrics_4/disc_episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_5/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_5/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_5/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_5/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_5/SPS
+      5: 1
+      6:
+      - 1
+    - 1: charts_5/timesteps_per_episode
+      5: 1
+      6:
+      - 1
+    - 1: charts_5/episode_time
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/discounted_scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/disc_episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/disc_episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: metrics_5/disc_episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_6/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_6/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_6/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_6/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_7/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_7/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_7/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_7/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_8/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_8/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_8/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_8/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_8/SPS
+      5: 1
+      6:
+      - 1
+    - 1: charts_8/timesteps_per_episode
+      5: 1
+      6:
+      - 1
+    - 1: charts_8/episode_time
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/discounted_scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/disc_episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/disc_episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: metrics_8/disc_episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_9/epsilon
+      5: 1
+      6:
+      - 1
+    - 1: losses_9/scalarized_td_error
+      5: 1
+      6:
+      - 1
+    - 1: losses_9/mean_td_error
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/scalarized_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/scalarized_discounted_return
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/discounted_vec_0
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/discounted_vec_1
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/vec_2
+      5: 1
+      6:
+      - 1
+    - 1: eval_9/discounted_vec_2
+      5: 1
+      6:
+      - 1
+    - 1: charts_9/SPS
+      5: 1
+      6:
+      - 1
+    - 1: charts_9/timesteps_per_episode
+      5: 1
+      6:
+      - 1
+    - 1: charts_9/episode_time
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/discounted_scalarized_episode_return
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/disc_episode_return_obj_0
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/disc_episode_return_obj_1
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/episode_return_obj_2
+      5: 1
+      6:
+      - 1
+    - 1: metrics_9/disc_episode_return_obj_2
+      5: 1
+      6:
+      - 1
+total_timesteps:
+  desc: null
+  value: 100000
+ref_point:
+  desc: null
+  value:
+  - -1.0
+  - -1.0
+  - -2.0
+known_front:
+  desc: null
+  value: null
+timesteps_per_iteration:
+  desc: null
+  value: 10000
+num_eval_weights_for_front:
+  desc: null
+  value: 100
+num_eval_episodes_for_front:
+  desc: null
+  value: 50
+num_eval_weights_for_eval:
+  desc: null
+  value: 50
+eval_freq:
+  desc: null
+  value: 1000

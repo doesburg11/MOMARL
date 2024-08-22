@@ -1,0 +1,45 @@
+CCS: [] CCS size: 0
+Next weight: [1. 0. 0.]
+Adding value: [0. 0. 0.] to CCS.
+W_corner: [array([1., 0., 0.]), array([0., 1., 0.]), array([0., 0., 1.])] W_corner size: 3
+CCS: [array([0., 0., 0.], dtype=float32)] CCS size: 1
+Next weight: [0. 0. 1.]
+Adding value: [0.     0.     0.3874] to CCS.
+removed value [0. 0. 0.]
+W_corner: [array([1., 0., 0.]), array([0., 1., 0.]), array([0., 0., 1.])] W_corner size: 3
+CCS: [array([0.    , 0.    , 0.3874])] CCS size: 1
+Next weight: [0. 1. 0.]
+Adding value: [-0.1142  0.4018  0.    ] to CCS.
+W_corner: [array([0.7787, 0.2213, 0.    ]), array([1., 0., 0.]), array([0., 0., 1.]), array([0., 1., 0.]), array([0.    , 0.4909, 0.5091])] W_corner size: 5
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ])] CCS size: 2
+Next weight: [0.     0.4909 0.5091]
+Adding value: [-0.1022  0.251   0.251 ] to CCS.
+W_corner: [array([0.5382, 0.3046, 0.1573]), array([0.7787, 0.2213, 0.    ]), array([1., 0., 0.]), array([0., 0., 1.]), array([0.    , 0.3521, 0.6479]), array([0., 1., 0.]), array([0.    , 0.6247, 0.3753])] W_corner size: 7
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ]), array([-0.1022,  0.251 ,  0.251 ])] CCS size: 3
+Next weight: [0.     0.6247 0.3753]
+Adding value: [-0.1028  0.2448  0.2448] to CCS.
+Value [-0.1028  0.2448  0.2448] is dominated. Discarding.
+W_corner: [array([0.5382, 0.3046, 0.1573]), array([0.7787, 0.2213, 0.    ]), array([1., 0., 0.]), array([0., 0., 1.]), array([0.    , 0.3521, 0.6479]), array([0., 1., 0.]), array([0.    , 0.6247, 0.3753])] W_corner size: 7
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ]), array([-0.1022,  0.251 ,  0.251 ])] CCS size: 3
+Next weight: [0.7787 0.2213 0.    ]
+Adding value: [0.     0.3138 0.    ] to CCS.
+W_corner: [array([0.3301, 0.4284, 0.2416]), array([0.4352, 0.5648, 0.    ]), array([0.4317, 0.314 , 0.2543]), array([1., 0., 0.]), array([0.    , 0.3521, 0.6479]), array([0., 0., 1.]), array([0.    , 0.6247, 0.3753]), array([0., 1., 0.])] W_corner size: 8
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ]), array([-0.1022,  0.251 ,  0.251 ]), array([0.    , 0.3138, 0.    ])] CCS size: 4
+Next weight: [0.4317 0.314  0.2543]
+Adding value: [-0.1154  0.2385  0.2385] to CCS.
+Value [-0.1154  0.2385  0.2385] is dominated. Discarding.
+W_corner: [array([0.3301, 0.4284, 0.2416]), array([0.4352, 0.5648, 0.    ]), array([0.4317, 0.314 , 0.2543]), array([1., 0., 0.]), array([0.    , 0.3521, 0.6479]), array([0., 0., 1.]), array([0.    , 0.6247, 0.3753]), array([0., 1., 0.])] W_corner size: 8
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ]), array([-0.1022,  0.251 ,  0.251 ]), array([0.    , 0.3138, 0.    ])] CCS size: 4
+Next weight: [0.3301 0.4284 0.2416]
+Adding value: [-0.0663  0.2699  0.2699] to CCS.
+removed value [-0.1022  0.251   0.251 ]
+W_corner: [array([0.363 , 0.4711, 0.1658]), array([0.4352, 0.5648, 0.    ]), array([0.5928, 0.225 , 0.1822]), array([1., 0., 0.]), array([0.    , 0.3033, 0.6967]), array([0., 0., 1.]), array([0.    , 0.6717, 0.3283]), array([0., 1., 0.])] W_corner size: 8
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ]), array([0.    , 0.3138, 0.    ]), array([-0.0663,  0.2699,  0.2699])] CCS size: 4
+Next weight: [0.363  0.4711 0.1658]
+Adding value: [-0.0819  0.2186  0.2186] to CCS.
+Value [-0.0819  0.2186  0.2186] is dominated. Discarding.
+W_corner: [array([0.363 , 0.4711, 0.1658]), array([0.4352, 0.5648, 0.    ]), array([0.5928, 0.225 , 0.1822]), array([1., 0., 0.]), array([0.    , 0.3033, 0.6967]), array([0., 0., 1.]), array([0.    , 0.6717, 0.3283]), array([0., 1., 0.])] W_corner size: 8
+CCS: [array([0.    , 0.    , 0.3874]), array([-0.1142,  0.4018,  0.    ]), array([0.    , 0.3138, 0.    ]), array([-0.0663,  0.2699,  0.2699])] CCS size: 4
+Next weight: [0.5928 0.225  0.1822]
+Adding value: [-0.0856  0.2573  0.2573] to CCS.
+Value [-0.0856  0.2573  0.2573] is dominated. Discarding.

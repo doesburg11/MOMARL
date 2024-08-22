@@ -2,6 +2,8 @@ import gymnasium as gym
 import mo_gymnasium as mo_gym
 from mo_gymnasium.utils import MORecordEpisodeStatistics
 import numpy as np
+from morl_baselines.common.utils import make_gif
+from morl_baselines.multi_policy.multi_policy_moqlearning.mp_mo_q_learning import MPMOQLearning
 
 GAMMA = 0.9
 ref_point = np.array([-1., -1., -2.])
@@ -13,9 +15,6 @@ eval_env = mo_gym.make("resource-gathering-v0") # environment used for evaluatio
 
 env.pareto_front(GAMMA) # known Pareto front
 
-from morl_baselines.multi_policy.multi_policy_moqlearning.mp_mo_q_learning import MPMOQLearning
-
-# Your code here:
 agent = MPMOQLearning(
     env,
     initial_epsilon=1.0,
@@ -31,15 +30,12 @@ agent = MPMOQLearning(
 agent.train(total_timesteps=100000, timesteps_per_iteration=10000, eval_env=eval_env, num_eval_episodes_for_front=50, ref_point=ref_point)
 
 
-env.pareto_front(0.9)
+print("agent.linear_support.ccs", agent.linear_support.ccs)
+print("env.pareto_front(GAMMA) ", env.pareto_front(GAMMA) )
 
-agent.linear_support.ccs
-
-from morl_baselines.common.utils import make_gif
 
 env2 = mo_gym.make("resource-gathering-v0", render_mode='rgb_array')  # you need to set the render_mode to render the gifs
 
-# Your code here:
 make_gif(env2, agent, weight=np.array([0.9, 0.1, 0.0]), fps=10, fullpath="./myagent1")
 make_gif(env2, agent, weight=np.array([0.3, 0.7, 0.0]), fps=10, fullpath="./myagent2")
 make_gif(env2, agent, weight=np.array([0.0, 1.0, 0.0]), fps=10, fullpath="./myagent3")
