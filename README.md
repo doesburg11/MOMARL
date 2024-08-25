@@ -52,4 +52,5 @@ Part of the project is resource gathering, as this is a crucial part of the **su
 
 # References
 - [A Practical Guide to Multi-Objective Reinforcement Learning and Planning](https://arxiv.org/abs/2103.09568)
+- [An API standard for multi-objective multi-agent reinforcement learning (MOMARL)](https://github.com/Farama-Foundation/momaland)
 
