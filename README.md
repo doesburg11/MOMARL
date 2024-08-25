@@ -52,5 +52,9 @@ Starting point for this project is [resource gathering](https://github.com/doesb
 
 # References
 - [A Practical Guide to Multi-Objective Reinforcement Learning and Planning](https://arxiv.org/abs/2103.09568)
+<<<<<<< HEAD
 - [An API standard for multi-objective multi-agent reinforcement learning (MOMARL)](https://momaland.farama.org/)
+=======
+- [An API standard for multi-objective multi-agent reinforcement learning (MOMARL)](https://github.com/Farama-Foundation/momaland)
+>>>>>>> 2c6a383b83985aafb851638d44a29a5373b4fea3
 
