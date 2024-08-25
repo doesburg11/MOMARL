@@ -10,7 +10,7 @@ Starting point for this project is [resource gathering](https://github.com/doesb
 
 ## Item Gathering (MOMARL)
 
-A MOMARL environment with random policy agents.
+A MOMARL [environment with random policy agents](https://github.com/doesburg11/MOMARL/tree/main/MOMALand/item_gathering).
 
 ## Beach Problem Domain (MOMARL)
 
