@@ -1,5 +1,5 @@
 # The Project
-This Multi-Objective Reinforcement Learning (MORL) example aimes to balance the objectives of survival and reproduction.
+This Multi-Objective Reinforcement Learning (MORL) project aimes to balance the objectives of survival and reproduction.
 
 Consider a scenario modeling the behavior of an agent, such as an animal, using MORL. The agent has two primary objectives: **survival** and **reproduction**. This example could apply to a simulated ecosystem where animals need to balance finding food, avoiding predators, and seeking mates to reproduce.
 
@@ -38,7 +38,7 @@ Consider a scenario modeling the behavior of an agent, such as an animal, using 
 - **Balanced Behavior:** Ideally, the agent finds a balance where it survives long enough to reproduce multiple times, ensuring both its survival and the continuation of its species.
 
 # The Implementation of the Project
-Part of the project is resource gathering, as this is a crucial part of the **survival** objective. Initially, this is a modification of a [morl-baselines](https://github.com/LucasAlegre/morl-baselines) example.
+Starting point for this project is [resource gathering](https://github.com/doesburg11/SurvivalReproduction/blob/main/MO_Gymnasium/resource_gathering/mpmoq_policy.py), as this is a crucial part of the **survival** objective. Initially, this is a modification of a [morl-baselines](https://github.com/LucasAlegre/morl-baselines) example. This is intially a multi-objective *single* agent environment. It is the intention to extend this to a multi-agent environment in the future.
 
 </br>
 <p align="center">
@@ -52,4 +52,5 @@ Part of the project is resource gathering, as this is a crucial part of the **su
 
 # References
 - [A Practical Guide to Multi-Objective Reinforcement Learning and Planning](https://arxiv.org/abs/2103.09568)
+- [An API standard for multi-objective multi-agent reinforcement learning (MOMARL)](https://momaland.farama.org/)
 
