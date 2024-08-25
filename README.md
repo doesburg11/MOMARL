@@ -5,7 +5,7 @@ Starting point for this project is [resource gathering](https://github.com/doesb
 
 </br>
 <p align="center">
-    <img src="https://github.com/doesburg11/SurvivalReproduction/blob/main/assets/myagent1.gif" width="200" height="200"/>
+    <img src="https://github.com/doesburg11/MOMARL/blob/main/assets/myagent1.gif" width="200" height="200"/>
 </p>
 
 ## Item Gathering (MOMARL)
@@ -13,6 +13,12 @@ Starting point for this project is [resource gathering](https://github.com/doesb
 A MOMARL environment with random policy agents.
 
 ## Beach Problem Domain (MOMARL)
+
+</br>
+<p align="center">
+    <img src="https://github.com/doesburg11/MOMARL/blob/main/assets/pareto.png" width="400" height="200"/>
+</p>
+
 
 # References
 

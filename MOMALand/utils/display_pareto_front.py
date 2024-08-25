@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file = "/home/doesburg/Dropbox/03_marl_code/SurvivalReproduction/MOMALand/beach/results/nds/BPD_50_individual.csv"
+file = "/home/doesburg/Dropbox/03_marl_code/MOMARL/MOMALand/beach/results/nds/BPD_50_individual.csv"
 
 # Read the first row to get the axis titles
 axis_titles = pd.read_csv(file, header=None, nrows=1).iloc[0]
