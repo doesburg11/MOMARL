@@ -64,7 +64,7 @@ def parse_args():
     parser.add_argument("--env-id", type=str, default="mobeach_v0", help="MOMAland id of the environment to run (check all_modules.py)")
     parser.add_argument('--exp-name', type=str, default="exp1", help="the name of this experiment")
     parser.add_argument('--seed', type=int, default=1, help="the seed of the experiment")
-    parser.add_argument('--runs', type=int, default=10)
+    parser.add_argument('--runs', type=int, default=100)
     parser.add_argument('--random', type=lambda x: bool(strtobool(x)), default=False, nargs="?", const=True,
                         help="run with random actions")
 
@@ -155,24 +155,24 @@ if __name__ == "__main__":
     # ---------------------- #
     # Saving Learning Curves #
     # ---------------------- #
-    mkdir_p("MOMALand/beach/results/beach/runs")
+    mkdir_p("MOMALand/beach/iql/results/runs")
     if args.random:
-        df_total.to_csv(f"MOMALand/beach/results/runs/BPD_{args.num_agents}_random.csv", index=False)
+        df_total.to_csv(f"MOMALand/beach/iql/results/runs/BPD_{args.num_agents}_random.csv", index=False)
     else:
         df_total.to_csv(
-            f"MOMALand/beach/results/runs/BPD_{args.num_agents}_{args.reward_scheme}.csv", index=False
+            f"MOMALand/beach/iql/results/runs/BPD_{args.num_agents}_{args.reward_scheme}.csv", index=False
         )
 
     # ------------------------------ #
     # Saving Non-Dominated Solutions #
     # ------------------------------ #
-    mkdir_p("MOMALand/beach/results/nds")
+    mkdir_p("MOMALand/beach/iql/results/nds")
     # Remove dominated solutions
     best_rewards = fast_p_prune(best_rewards)
     # Save remaining solutions to csv
     df = pd.DataFrame(best_rewards, columns=["Capacity", "Mixture"])
     # Save to csv
     if args.random:
-        df.to_csv(f"MOMALand/beach/results/nds/BPD_{args.num_agents}_random.csv", index=False)
+        df.to_csv(f"MOMALand/beach/iql/results/nds/BPD_{args.num_agents}_random.csv", index=False)
     else:
-        df.to_csv(f"MOMALand/beach/results/nds/BPD_{args.num_agents}_{args.reward_scheme}.csv", index=False)
+        df.to_csv(f"MOMALand/beach/iql/results/nds/BPD_{args.num_agents}_{args.reward_scheme}.csv", index=False)

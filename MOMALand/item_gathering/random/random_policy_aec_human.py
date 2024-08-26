@@ -4,9 +4,22 @@ from momaland.envs.item_gathering import moitem_gathering_v0
 import numpy as np
 import time
 
-sleep_time = 0.1
+sleep_time = 0.01
 
-initial_map = np.array(
+DEFAULT_MAP = np.array(
+    [
+        [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 4, 0, 0],
+        [0, 0, 4, 0, 4, 5, 0, 0],
+        [0, 0, 0, 3, 0, 0, 0, 0],
+        [0, 0, 3, 3, 0, 5, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0, 0],
+    ]
+)
+
+alternative_map = np.array(
     [
         [1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,8 +35,8 @@ initial_map = np.array(
 
 
 env=moitem_gathering_v0.env(
-    num_timesteps=100,
-    initial_map=initial_map, 
+    num_timesteps=500,
+    initial_map=DEFAULT_MAP, 
     render_mode="human"
     )
 
