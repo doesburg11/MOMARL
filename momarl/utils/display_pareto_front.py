@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Set the file name and directory
 file_name = "BPD_50_individual.csv"
-directory = "/home/doesburg/Dropbox/03_marl_code/MOMARL/MOMALand/beach/iql/results/nds/"
+directory = "/home/doesburg/Dropbox/03_marl_code/MOMARL/momarl/beach/iql/results/nds/"
 
 # Read the first row to get the axis titles
 axis_titles = pd.read_csv(directory + file_name, header=None, nrows=1).iloc[0]
@@ -19,14 +19,14 @@ y = data[1]
 plt.figure(figsize=(10, 6))
 
 # Plot the data with enhancements
-plt.plot(x, y, marker="o", linestyle="-", color="b", label="Pareto front")
+plt.plot(x, y, marker="o", linestyle="-", color="b", label="Pareto Front")
 
 # Fill the area beneath the line graph with grey color
 plt.fill_between(x, y, color="grey", alpha=0.3)
 
 # Add titles and labels
 plt.title(
-    "Estimated Pareto coverage set Beach Problem Domain", fontsize=16, fontweight="bold"
+    "Pareto Front Beach Problem Domain", fontsize=16, fontweight="bold"
 )
 plt.xlabel(axis_titles[0], fontsize=14)
 plt.ylabel(axis_titles[1], fontsize=14)

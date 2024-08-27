@@ -1,4 +1,4 @@
-"""Derivation of the PF in the Beach Domain.
+"""Derivation of the Pareto Front in the Beach Domain.
 
 To reproduce the results of the paper "Reward shaping for knowledge-based multi-objective multi-agent reinforcement learning"
 by Mannion, P., Devlin, S., Duggan, J., and Howley, E. (2018) we need to derive the true Pareto front for the Beach
