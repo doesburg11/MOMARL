@@ -10,7 +10,7 @@ Starting point for this project is [resource gathering](https://github.com/doesb
 
 ## Item Gathering (MOMARL)
 
-A MOMARL [environment with random policy agents](https://github.com/doesburg11/MOMARL/blob/main/MOMALand/item_gathering/random/random_policy_aec_human.py). 
+A MOMARL [environment with random policy agents](https://github.com/doesburg11/MOMARL/blob/main/momarl/item_gathering/random/random_policy_aec_human.py). 
 
 ## Multi-Objective Beach Problem Domain (MO-BPD)
 
@@ -25,7 +25,7 @@ The Pareto Coverage Set is simulated with the [Independent Q-Learners algorithm]
     <img src="https://github.com/doesburg11/MOMARL/blob/main/assets/pareto.png" width="400" height="200"/>
 </p>
 
-Furthermore, a MO-BPD solution is also applied with the [Cooperative Discrete MOMAPPO algorithm](https://github.com/doesburg11/MOMARL/blob/main/MOMALand/beach/cooperative_momappo/discrete_momappo.py).
+Furthermore, a MO-BPD solution is also applied with the [Cooperative Discrete MOMAPPO algorithm](https://github.com/doesburg11/MOMARL/blob/main/momarl/beach/cooperative_momappo/discrete_momappo.py).
 
 # References
 
