@@ -64,7 +64,7 @@ def parse_args():
     parser.add_argument("--env-id", type=str, default="mobeach_v0", help="MOMAland id of the environment to run (check all_modules.py)")
     parser.add_argument('--exp-name', type=str, default="exp1", help="the name of this experiment")
     parser.add_argument('--seed', type=int, default=1, help="the seed of the experiment")
-    parser.add_argument('--runs', type=int, default=50)
+    parser.add_argument('--runs', type=int, default=100)
     parser.add_argument('--random', type=lambda x: bool(strtobool(x)), default=False, nargs="?", const=True,
                         help="run with random actions")
 

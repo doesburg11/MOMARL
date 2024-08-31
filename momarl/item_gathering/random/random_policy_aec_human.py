@@ -4,7 +4,7 @@ from momaland.envs.item_gathering import moitem_gathering_v0
 import numpy as np
 import time
 
-sleep_time = 0.01
+sleep_time = 0.5
 
 DEFAULT_MAP = np.array(
     [
@@ -45,7 +45,7 @@ episode_rewards = []
 for agent in env.agent_iter():
     # the rewards are vectors!
     observation, vec_reward, termination, truncation, info = env.last()
-    #print(f"Agent {agent} received reward: {vec_reward}")
+    print(f"Agent {agent} received reward: {vec_reward}")
     episode_rewards.append(vec_reward)
     if termination or truncation:
         action = None
