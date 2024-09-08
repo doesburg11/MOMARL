@@ -18,7 +18,7 @@ In the Multi-Objective Beach Problem Domain (MO-BPD), each agent represents a to
 Each beach section is characterised by a certain capacity and each agent is characterised by one of two static types: A or B. These properties, together with the location of the agents on the beach sections, determine the vectorial reward received by agents, having two conflicting objectives: “capacity” and “mixture”. The environment can be configured in two modes, “individual” or “team” reward: the agents can either receive their own individual local rewards, based on the beach section they are located in (i.e., individual reward setting), or the
 global reward, based on the sum of rewards over all the available beach sections (i.e., team reward setting).
 
-The Pareto Coverage Set is simulated with the [Independent Q-Learners algorithm](https://github.com/Farama-Foundation/momaland/blob/main/momaland/learning/iql/iql.py):
+The Pareto Front is simulated with the [Independent Q-Learners algorithm](https://github.com/Farama-Foundation/momaland/blob/main/momaland/learning/iql/iql.py):
 
 </br>
 <p align="center">
@@ -33,4 +33,4 @@ Furthermore, a MO-BPD solution is also applied with the [Cooperative Discrete MO
 - [Multi-Objective Multi-Agent Decision Making: A Utility-based Analysis and Survey](https://arxiv.org/abs/1909.02964)
 - [A Practical Guide to Multi-Objective Reinforcement Learning and Planning](https://arxiv.org/abs/2103.09568)
 - [Pettingzoo: Gym for multi-agent reinforcement learning. 2021-2024. Terry, J and Black, Benjamin and Grammel, Nathaniel and Jayakumar, Mario and Hari, Ananth and Sullivan, Ryan and Santos, Luis S and Dieffendahl, Clemens and Horsch, Caroline and Perez-Vicente, Rodrigo and others](https://pettingzoo.farama.org/)  
-
+- [Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. Stefano V. Albrecht, Filippos Christianos, and Lukas Schäfer](https://www.marl-book.com/download/marl-book.pdf)

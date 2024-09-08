@@ -1,6 +1,6 @@
-import environments.predpreygrass_available_energy_transfer as predpreygrass
+import momarl.mo_predpreygrass.predpreygrass.environments.mo_predpreygrass as mo_predpreygrass
 
-from config.config_pettingzoo import (
+from config.config_predpreygrass import (
     env_kwargs,
     training_steps_string,
     local_output_directory,
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     N_TRIALS = 10
     environment_name = "predpreygrass"
     # Ensure the correct reference to the environment function
-    env_fn = predpreygrass
+    env_fn = mo_predpreygrass
     training_steps = int(training_steps_string)
 
     start_time = str(time.strftime("%Y-%m-%d_%H:%M:%S"))  # add seconds

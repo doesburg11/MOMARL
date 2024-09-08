@@ -1,0 +1,80 @@
+{
+    "os": "Linux-5.15.0-119-generic-x86_64-with-glibc2.35",
+    "python": "3.11.9",
+    "heartbeatAt": "2024-08-31T07:49:08.202250",
+    "startedAt": "2024-08-31T07:49:07.376434",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/doesburg/Dropbox/03_marl_code/MOMARL/morl/resource_gathering/mpmoq_policy.py",
+    "codePathLocal": "morl/resource_gathering/mpmoq_policy.py",
+    "codePath": "morl/resource_gathering/mpmoq_policy.py",
+    "git": {
+        "remote": "https://github.com/doesburg11/SurvivalReproduction.git",
+        "commit": "583a3891cdfb08056872ccab850fc4b3c38e5b6b"
+    },
+    "email": "petervandoesburg11@gmail.com",
+    "root": "/home/doesburg/Dropbox/03_marl_code/MOMARL",
+    "host": "doesburg-Aspire-A515-56",
+    "username": "doesburg",
+    "executable": "/home/doesburg/Dropbox/03_marl_code/MOMARL/.conda/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3329.822,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2800.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 4036.315,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2800.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2800.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3651.087,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3811.843,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2800.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2800.0,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 144.36093139648438,
+            "used": 105.29553985595703
+        }
+    },
+    "memory": {
+        "total": 15.397686004638672
+    }
+}

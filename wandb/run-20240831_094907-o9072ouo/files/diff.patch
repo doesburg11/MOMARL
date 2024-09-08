@@ -1,0 +1,182 @@
+diff --git a/MO_Gymnasium/resource_gathering/mpmoq_policy.py b/MO_Gymnasium/resource_gathering/mpmoq_policy.py
+deleted file mode 100644
+index 9be2cec..0000000
+--- a/MO_Gymnasium/resource_gathering/mpmoq_policy.py
++++ /dev/null
+@@ -1,64 +0,0 @@
+-import gymnasium as gym
+-import mo_gymnasium as mo_gym
+-from mo_gymnasium.utils import MORecordEpisodeStatistics
+-import numpy as np
+-from morl_baselines.common.utils import make_gif
+-from morl_baselines.multi_policy.multi_policy_moqlearning.mp_mo_q_learning import MPMOQLearning
+-
+-import time
+-import os
+-
+-# create here your own directory to store the results
+-local_output_directory = "/home/doesburg/Dropbox/02_marl_results/survivalreproduction_results/"
+-environment_name = "resource_gathering"
+-
+-start_time = str(time.strftime("%Y-%m-%d_%H:%M:%S"))  # add seconds
+-file_name = f"{environment_name}_"
+-
+-destination_directory_source_code = os.path.join(
+-                local_output_directory, start_time
+-            )
+-
+-
+-
+-GAMMA = 0.9
+-ref_point = np.array([-1., -1., -2.])
+-
+-env = mo_gym.make("resource-gathering-v0")
+-env = MORecordEpisodeStatistics(env, gamma=GAMMA)  # wrapper for recording statistics
+-
+-eval_env = mo_gym.make("resource-gathering-v0") # environment used for evaluation
+-
+-env.pareto_front(GAMMA) # known Pareto front
+-
+-agent = MPMOQLearning(
+-    env,
+-    initial_epsilon=1.0,
+-    final_epsilon=0.05,
+-    epsilon_decay_steps=100000,
+-    gamma=GAMMA,
+-    dyna=True,
+-    gpi_pd=True,
+-    weight_selection_algo='gpi-ls',
+-    use_gpi_policy=True
+-)
+-
+-agent.train(
+-    total_timesteps=100000, 
+-    timesteps_per_iteration=10000, 
+-    eval_env=eval_env, 
+-    num_eval_episodes_for_front=50, 
+-    ref_point=ref_point
+-    )
+-
+-
+-print("agent.linear_support.ccs", agent.linear_support.ccs)
+-print("env.pareto_front(GAMMA) ", env.pareto_front(GAMMA) )
+-
+-
+-env2 = mo_gym.make("resource-gathering-v0", render_mode='rgb_array')  # you need to set the render_mode to render the gifs
+-
+-
+-make_gif(env2, agent, weight=np.array([0.9, 0.1, 0.0]), fps=10, fullpath=destination_directory_source_code+"/myagent1")
+-make_gif(env2, agent, weight=np.array([0.3, 0.7, 0.0]), fps=10, fullpath=destination_directory_source_code+"/myagent2")
+-make_gif(env2, agent, weight=np.array([0.0, 1.0, 0.0]), fps=10, fullpath=destination_directory_source_code+"/myagent3")
+diff --git a/MO_Gymnasium/resource_gathering/random_policy_aec_human.py b/MO_Gymnasium/resource_gathering/random_policy_aec_human.py
+deleted file mode 100644
+index e571a87..0000000
+--- a/MO_Gymnasium/resource_gathering/random_policy_aec_human.py
++++ /dev/null
+@@ -1,24 +0,0 @@
+-import mo_gymnasium as mo_gym
+-
+-# Create your environment
+-env = mo_gym.make("resource-gathering-v0", render_mode="human")
+-
+-# Reset the environment
+-env.reset()
+-done = False
+-
+-# Run the environment for a specified number of episodes
+-num_episodes = 1  # Set the number of episodes you want to run
+-for episode in range(num_episodes):
+-    n_steps = 0
+-    obs = env.reset()
+-    done = False
+-
+-    while not done:
+-        n_steps += 1
+-        obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+-        done = terminated or truncated
+-
+-    print(f"Episode {episode + 1} done in {n_steps} steps")
+-    print("Terminated: ", terminated)
+-    print("Truncated: ", truncated)
+\ No newline at end of file
+diff --git a/MO_Gymnasium/resource_gathering/random_policy_aec_video.py b/MO_Gymnasium/resource_gathering/random_policy_aec_video.py
+deleted file mode 100644
+index d4ebda8..0000000
+--- a/MO_Gymnasium/resource_gathering/random_policy_aec_video.py
++++ /dev/null
+@@ -1,47 +0,0 @@
+-import gymnasium as gym
+-import mo_gymnasium as mo_gym
+-# Create your environment
+-env = mo_gym.make("mo-mountaincar-v0", render_mode="rgb_array")
+-from gymnasium.wrappers.record_video import RecordVideo
+-
+-import time
+-import os
+-
+-
+-local_output_directory = "/home/doesburg/Dropbox/02_marl_results/survivalreproduction_results/"
+-environment_name = "mountaincar"
+-
+-start_time = str(time.strftime("%Y-%m-%d_%H:%M:%S"))  # add seconds
+-file_name = f"{environment_name}_"
+-
+-destination_directory_source_code = os.path.join(
+-                local_output_directory, start_time
+-            )
+-
+-
+-env = RecordVideo(
+-    env, 
+-    destination_directory_source_code, 
+-    episode_trigger=lambda e: True,
+-    step_trigger=None,
+-    name_prefix="random_policy_aec",
+-    video_length=200,
+-    )
+-
+-
+-
+-# Run the environment for a specified number of episodes
+-num_episodes = 1  # Set the number of episodes you want to run
+-for episode in range(num_episodes):
+-    n_steps = 0
+-    obs = env.reset()
+-    done = False
+-
+-    while not done:
+-        n_steps += 1
+-        obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+-        done = terminated or truncated
+-
+-    print(f"Episode {episode + 1} done in {n_steps} steps")
+-    print("Terminated: ", terminated)
+-    print("Truncated: ", truncated)
+\ No newline at end of file
+diff --git a/wandb/debug-internal.log b/wandb/debug-internal.log
+index 58a7d0b..c6eb9a8 120000
+--- a/wandb/debug-internal.log
++++ b/wandb/debug-internal.log
+@@ -1 +1 @@
+-run-20240822_211736-8vz9vgg4/logs/debug-internal.log
+\ No newline at end of file
++run-20240831_094907-o9072ouo/logs/debug-internal.log
+\ No newline at end of file
+diff --git a/wandb/debug.log b/wandb/debug.log
+index cbd3a21..6d948db 120000
+--- a/wandb/debug.log
++++ b/wandb/debug.log
+@@ -1 +1 @@
+-run-20240822_211736-8vz9vgg4/logs/debug.log
+\ No newline at end of file
++run-20240831_094907-o9072ouo/logs/debug.log
+\ No newline at end of file
+diff --git a/wandb/latest-run b/wandb/latest-run
+index 81323a4..5573909 120000
+--- a/wandb/latest-run
++++ b/wandb/latest-run
+@@ -1 +1 @@
+-run-20240822_211736-8vz9vgg4
+\ No newline at end of file
++run-20240831_094907-o9072ouo
+\ No newline at end of file

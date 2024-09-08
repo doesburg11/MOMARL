@@ -12,10 +12,10 @@
   in the defined local directory (and not in your cloned directory!)
 """
 # Agent Environment Cycle (AEC) pettingzoo predpreygrass environment
-import environments.mo_predpreygrass_available_energy_transfer as predpreygrass
+import momarl.mo_predpreygrass.predpreygrass.environments.mo_predpreygrass as mo_predpreygrass
 
 # make sure this configuration is consistent with the training configuration in "train_sb3_vector_ppo.py"
-from config.config_pettingzoo import env_kwargs, training_steps_string
+from config.config_predpreygrass import env_kwargs, training_steps_string
 
 # displaying the population of predators and prey
 import matplotlib
@@ -28,9 +28,10 @@ import os
 from statistics import mean, stdev
 from typing import List
 
-import supersuit as ss
 from stable_baselines3 import PPO
 
+WATCH_GRID_MODEL = False # if false only evaluation is done
+NUM_EPISODES = 100
 
 def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_kwargs):
     # Evaluate a trained agent vs a random agent
@@ -73,6 +74,13 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
                     predator_extinct_at_termination[i] = 1
             else:
                 action = model.predict(observation, deterministic=False)[0]
+                """
+                0: [-1, 0], # move left
+                1: [0, -1], # move up
+                2: [0, 0], # stay
+                3: [0, 1], # move down
+                4: [1, 0], # move right
+                """
             raw_env.step(action)
             if agent_selector.is_last():  # called at end of cycle
                 n_aec_cycles += 1
@@ -168,6 +176,10 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
         n_born_predator_per_cycle[i] = (
             raw_env.pred_prey_env.n_born_predator / n_aec_cycles
         )
+        n_eaten_grass_per_cycle[i] = raw_env.pred_prey_env.n_eaten_grass / n_aec_cycles
+        n_born_predator_per_cycle[i] = (
+            raw_env.pred_prey_env.n_born_predator / n_aec_cycles
+        )
         n_born_prey_per_cycle[i] = raw_env.pred_prey_env.n_born_prey / n_aec_cycles
         episode_predator_age_list = raw_env.pred_prey_env.predator_age_list
         episode_prey_age_list = raw_env.pred_prey_env.prey_age_list
@@ -189,6 +201,7 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
             f"Strv Prd/cycl = {round(n_starved_predator_per_cycle[i],3)}",
             f"Strv Pry/cycl = {round(n_starved_prey_per_cycle[i],3)}",
             f"Eatn Pry/cycl = {round(n_eaten_prey_per_cycle[i],3)}",
+            f"Eatn Gra/cycl = {round(n_eaten_grass_per_cycle[i],3)}",
             f"Brn Prd/cycl = {round(n_born_predator_per_cycle[i],3)}",
             f"Brn Pry/cycle = {round(n_born_prey_per_cycle[i],3)}",
             f"Mn age Prd = {round(mean_age_predator[i],1)}",
@@ -200,6 +213,7 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
             file.write(f"Strv Prd/cycl = {round(n_starved_predator_per_cycle[i],3)} ")
             file.write(f"Strv Pry/cycl = {round(n_starved_prey_per_cycle[i],3)} ")
             file.write(f"Eeatn Pry/cycl = {round(n_eaten_prey_per_cycle[i],3)} ")
+            file.write(f"Eeatn Gra/cycl = {round(n_eaten_grass_per_cycle[i],3)} ")
             file.write(f"Brn Prd/cycl = {round(n_born_predator_per_cycle[i],3)} ")
             file.write(f"Brn Pry/cycl = {round(n_born_prey_per_cycle[i],3)} ")
             file.write(f"Mn age Prd = {round(mean_age_predator[i],1)} ")
@@ -221,6 +235,7 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
     )
     episode_mean_of_n_starved_prey_per_cycle = round(mean(n_starved_prey_per_cycle), 3)
     episode_mean_of_n_eaten_prey_per_cycle = round(mean(n_eaten_prey_per_cycle), 3)
+    episode_mean_of_n_eaten_grass_per_cycle = round(mean(n_eaten_grass_per_cycle), 3)
     episode_mean_of_n_born_predator_per_cycle = round(
         mean(n_born_predator_per_cycle), 3
     )
@@ -241,6 +256,7 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
         episode_mean_of_n_starved_predator_per_cycle,
         episode_mean_of_n_starved_prey_per_cycle,
         episode_mean_of_n_eaten_prey_per_cycle,
+        episode_mean_of_n_eaten_grass_per_cycle,
         episode_mean_of_n_born_predator_per_cycle,
         episode_mean_of_n_born_prey_per_cycle,
         episode_mean_of_mean_age_predator,
@@ -251,13 +267,15 @@ def eval(env_fn, num_episodes: int = 100, render_mode: str | None = None, **env_
 
 if __name__ == "__main__":
     environment_name = "predpreygrass"
-    env_fn = predpreygrass
+    env_fn = mo_predpreygrass
     model_file_name = f"{environment_name}_steps_{training_steps_string}"
     script_directory = os.path.dirname(os.path.abspath(__file__))
     output_directory = script_directory + "/output/"
     loaded_policy = output_directory + model_file_name
-    eval_model_only = True
-    watch_grid_model = not eval_model_only
+    watch_grid_model = WATCH_GRID_MODEL
+    eval_model_only = not watch_grid_model
+    num_episodes = NUM_EPISODES 
+
     # save parameters to file
     if eval_model_only:
         saved_directory_and_evaluation_file_name = os.path.join(
@@ -279,13 +297,13 @@ if __name__ == "__main__":
     training_steps = int(training_steps_string)
 
     # global variables for evaluation used in eval function
-    num_episodes: int = 100  # replace with the actual number of episodes
 
     episode_length: List[int] = [0 for _ in range(num_episodes)]
     predator_extinct_at_termination: List[int] = [0 for _ in range(num_episodes)]
     n_starved_predator_per_cycle: List[int] = [0 for _ in range(num_episodes)]
     n_starved_prey_per_cycle: List[int] = [0 for _ in range(num_episodes)]
     n_eaten_prey_per_cycle: List[int] = [0 for _ in range(num_episodes)]
+    n_eaten_grass_per_cycle: List[int] = [0 for _ in range(num_episodes)]
     n_born_predator_per_cycle: List[int] = [0 for _ in range(num_episodes)]
     n_born_prey_per_cycle: List[int] = [0 for _ in range(num_episodes)]
     mean_cumulative_rewards: List[int] = [0 for _ in range(num_episodes)]
@@ -315,6 +333,7 @@ if __name__ == "__main__":
             episode_mean_of_n_starved_predator_per_cycle,
             episode_mean_of_n_starved_prey_per_cycle,
             episode_mean_of_n_eaten_prey_per_cycle,
+            episode_mean_of_n_eaten_grass_per_cycle,
             episode_mean_of_n_born_predator_per_cycle,
             episode_mean_of_n_born_prey_per_cycle,
             episode_mean_of_mean_age_predator,
@@ -352,6 +371,10 @@ if __name__ == "__main__":
         )
         file.write(
             f"Per episode mean of eaten Prey/cycle = {round(episode_mean_of_n_eaten_prey_per_cycle,3)}"
+            + "\n"
+        )
+        file.write(
+            f"Per episode mean of eaten Grass/cycle = {round(episode_mean_of_n_eaten_grass_per_cycle,3)}"
             + "\n"
         )
         file.write(
@@ -403,6 +426,9 @@ if __name__ == "__main__":
             f"Per episode mean of eaten prey/cycle = {round(episode_mean_of_n_eaten_prey_per_cycle,3)}"
         )
         print(
+            f"Per episode mean of eaten grass/cycle = {round(episode_mean_of_n_eaten_grass_per_cycle,3)}"
+        )
+        print(
             f"Per episode mean of born predator/cycle = {round(episode_mean_of_n_born_predator_per_cycle,3)}"
         )
         print(
@@ -427,6 +453,7 @@ if __name__ == "__main__":
             episode_mean_of_n_starved_predator_per_cycle,
             episode_mean_of_n_starved_prey_per_cycle,
             episode_mean_of_n_eaten_prey_per_cycle,
+            episode_mean_of_n_eaten_grass_per_cycle,
             episode_mean_of_n_born_predator_per_cycle,
             episode_mean_of_n_born_prey_per_cycle,
             episode_mean_of_mean_age_predator,
@@ -457,6 +484,9 @@ if __name__ == "__main__":
         )
         print(
             f"Per episode mean of eaten prey/cycle = {round(episode_mean_of_n_eaten_prey_per_cycle,3)}"
+        )
+        print(
+            f"Per episode mean of eaten grass/cycle = {round(episode_mean_of_n_eaten_grass_per_cycle,3)}"
         )
         print(
             f"Per episode mean of born predator/cycle = {round(episode_mean_of_n_born_predator_per_cycle,3)}"

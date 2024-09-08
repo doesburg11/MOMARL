@@ -1,0 +1,4 @@
+pettingzoo
+stable_baselines3
+numpy
+pygame

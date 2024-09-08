@@ -12,8 +12,8 @@ After/during training, you can review the logs in TensorBoard
 
 """
 # Continue training for X steps and log the results to TensorBoard
-import environments.predpreygrass_available_energy_transfer as predpreygrass
-from config.config_pettingzoo import env_kwargs, training_steps_string
+import momarl.mo_predpreygrass.predpreygrass.environments.mo_predpreygrass as mo_predpreygrass
+from config.config_predpreygrass import env_kwargs, training_steps_string
 
 import os
 
@@ -37,7 +37,7 @@ print()
 model = PPO.load(loaded_policy)
 
 
-env_fn = predpreygrass
+env_fn = mo_predpreygrass
 parallel_env = parallel_wrapper_fn(env_fn.raw_env)
 
 # Train a single model to play as each agent in a parallel environment
