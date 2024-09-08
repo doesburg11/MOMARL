@@ -8,7 +8,7 @@
 [![Wiki](https://img.shields.io/badge/Wiki-background-green)]()
 </br>
 <p align="center">
-    <img src="https://github.com/doesburg11/PredPreyGrass/blob/main/assets/images/readme/predpreygrass.png" width="700" height="80"/> 
+    <img src="https://github.com/doesburg11/MOMARL/blob/main/assets/mo_predpreygrass.png" width="700" height="80"/> 
 </p>
 </br>
 
